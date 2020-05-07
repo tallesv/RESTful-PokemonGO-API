@@ -9,7 +9,7 @@ app.use(routes);
 
 mongoose.connect(
   'mongodb+srv://mongo:mongo@cluster0-ls7ew.mongodb.net/test?retryWrites=true&w=majority',
-  { useUnifiedTopology: true, useNewUrlParser: true }
+  { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false }
 );
 
 const db = mongoose.connection;

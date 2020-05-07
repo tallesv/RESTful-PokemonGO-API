@@ -25,17 +25,24 @@ pokemonsRouter.post('/post', async (request, response) => {
   }
 })
 
-pokemonsRouter.put('/put', (request, response) => {
+pokemonsRouter.put('/put/:id', async (request, response) => {
+  const pokemonId = request.params.id;
+  const pokemonToUpdate = request.body;
 
+  try {
+    const updatedPokemon = await Pokemon.findOneAndUpdate( {id: pokemonId}, pokemonToUpdate );
+    return response.json(updatedPokemon);
+  } catch (err) {
+    return response.json({ message: err });
+  }
 
 })
 
 pokemonsRouter.delete('/delete/:id', async (request, response) => {
-  const { id } = request.params;
-  const pokemonId = id;
+  const pokemonId = request.params.id;
+
   try {
     const deletedPokemon = await Pokemon.findOneAndDelete({ id: pokemonId});
-    console.log(pokemonId);
     return response.json(deletedPokemon);
   } catch (err) {
     return response.json({ message: err });
