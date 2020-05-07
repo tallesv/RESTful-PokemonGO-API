@@ -1,0 +1,30 @@
+{
+   "name": "vaga-backend-teste",
+   "version": "1.0.0",
+   "main": "src/server.js",
+   "repository": "https://github.com/tallesv/vaga-backend-teste.git",
+   "author": "Talles Vieira <talles17.a@hotmail.com>",
+   "license": "MIT",
+   "scripts": {
+      "start": "nodemon"
+   },
+   "dependencies": {
+      "express": "^4.17.1",
+      "mongoose": "^5.9.12",
+      "mysql": "^2.14.1",
+      "pg": "^8.0.3",
+      "read-excel-file": "^4.0.6",
+      "reflect-metadata": "^0.1.10"
+   },
+   "devDependencies": {
+      "@types/node": "^8.0.29",
+      "eslint": "^5.16.0",
+      "eslint-config-airbnb-base": "^14.1.0",
+      "eslint-config-prettier": "^6.11.0",
+      "eslint-plugin-prettier": "^3.1.3",
+      "nodemon": "^2.0.3",
+      "prettier": "^2.0.5",
+      "ts-node": "3.3.0",
+      "typescript": "3.3.3333"
+   }
+}
