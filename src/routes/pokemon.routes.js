@@ -1,5 +1,4 @@
 const express = require('express');
-const readXlsFile = require('read-excel-file/node');
 
 const Pokemon = require('../model/Pokemon');
 
