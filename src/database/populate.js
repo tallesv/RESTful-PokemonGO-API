@@ -16,10 +16,6 @@ async function populateDatabase() {
     });
 
     const pokemons = pokemonsFromFile['Sheet1'];
-    //pokemons.map(pokemon => {
-    //  delete pokemon['Row'];
-    //  delete pokemon['Img Name'];
-    //});
 
     pokemons.map(pokemon => pokemonRepository.save(pokemon));
   } catch (err) {

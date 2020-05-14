@@ -21,7 +21,7 @@ const Pokemon = mongoose.Schema({
   stat_total: Number,
   atk: Number,
   def: Number,
-  stat: Number,
+  sta: Number,
   legendary: Number,
   aquireable: Number,
   spawns: Boolean,

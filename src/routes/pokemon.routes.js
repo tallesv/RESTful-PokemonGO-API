@@ -1,6 +1,7 @@
 const express = require('express');
 
 const Pokemon = require('../model/Pokemon');
+const PokemonController = require('../controllers/PokemonController');
 
 const pokemonsRouter = express.Router();
 
@@ -13,29 +14,9 @@ pokemonsRouter.get('/', async (request, response) => {
   }
 });
 
-pokemonsRouter.post('/post', async (request, response) => {
-  const pokemon = new Pokemon(request.body);
+pokemonsRouter.post('/post', PokemonController.create);
 
-  try {
-    const savedPokemon = await pokemon.save()
-    return response.json( savedPokemon);
-  } catch (err) {
-    return response.json({ message: err });
-  }
-})
-
-pokemonsRouter.put('/put/:id', async (request, response) => {
-  const pokemonId = request.params.id;
-  const pokemonToUpdate = request.body;
-
-  try {
-    const updatedPokemon = await Pokemon.findOneAndUpdate( {id: pokemonId}, pokemonToUpdate );
-    return response.json(updatedPokemon);
-  } catch (err) {
-    return response.json({ message: err });
-  }
-
-})
+pokemonsRouter.put('/put/:id', PokemonController.update);
 
 pokemonsRouter.delete('/delete/:id', async (request, response) => {
   const pokemonId = request.params.id;

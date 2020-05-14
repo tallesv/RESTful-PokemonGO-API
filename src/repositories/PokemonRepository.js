@@ -10,8 +10,33 @@ module.exports = {
     return pokemon;
   },
 
+  async getAllPokemons() {
+    const pokemons = await Pokemon.find();
+
+    return pokemons;
+  },
+
+  async update(id, pokemon) {
+    const updatedPokemon = await Pokemon.findOneAndUpdate(
+      { id: id},
+      this.parsePokemonToModel(pokemon)
+    );
+
+    return updatedPokemon;
+  },
+
   async save(pokemon) {
-    const poke = {
+    const pokemonData = this.parsePokemonToModel(pokemon);
+
+    const pokemonToCreate = new Pokemon(pokemonData);
+
+    const pokemonCreated = await pokemonToCreate.save();
+
+    return pokemonCreated;
+  },
+
+  parsePokemonToModel(pokemon) {
+    return pokemonModel = {
       name: pokemon['Name'],
       id: pokemon['Pokedex Number'],
       generation: pokemon['Generation'],
@@ -26,7 +51,7 @@ module.exports = {
       stat_total: pokemon['STAT TOTAL'],
       atk: pokemon['ATK'],
       def: pokemon['DEF'],
-      stat: pokemon['STA'],
+      sta: pokemon['STA'],
       legendary: pokemon['Legendary'],
       aquireable: pokemon['Aquireable'],
       spawns: pokemon['Spawns'],
@@ -41,10 +66,6 @@ module.exports = {
       cp40: pokemon['100% CP @ 40'],
       cp39: pokemon['100% CP @ 39']
     }
-
-    const pokemonCreated = new Pokemon(poke);
-
-    return await pokemonCreated.save();
   }
 
 }
