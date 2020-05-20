@@ -25,6 +25,12 @@ module.exports = {
     return updatedPokemon;
   },
 
+  async delete(id) {
+    const pokemonToDelete = await Pokemon.findOneAndDelete({ id: id });
+
+    return pokemonToDelete;
+  },
+
   async save(pokemon) {
     const pokemonData = this.parsePokemonToModel(pokemon);
 

@@ -22,12 +22,12 @@ databaseConnection.on('error', console.error.bind(console, 'database connection 
 databaseConnection.once('open', () => {
   console.log('database connected.');
 });
-//
+
 databaseConnection.on('connected', async () => {
   databaseConnection.db.collection('pokemons').countDocuments((err, count) => {
     if(count == 0) {
       console.log('Database empty, populating with pokemons.');
-      populate();
+      //populate();
     } else {
       console.log(`Database with ${count} pokemons`);
     }
