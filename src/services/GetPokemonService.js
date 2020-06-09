@@ -11,5 +11,11 @@ module.exports = {
     const pokemon = await PokemonRepository.findById(id);
 
     return pokemon;
+  },
+
+  async getPokemonsByStats(stats) {
+    const pokemons = await PokemonRepository.getPokemonsByStatus(stats);
+
+    return pokemons;
   }
 }

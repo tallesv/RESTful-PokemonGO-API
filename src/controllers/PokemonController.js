@@ -48,6 +48,18 @@ module.exports = {
     }
   },
 
+  async getByStats (request, response) {
+    const stats = request.body;
+
+    try{
+      const pokemons = await GetPokemonService.getPokemonsByStats(stats);
+
+      return response.json(pokemons);
+    } catch (err) {
+      return response.json({ message: err });
+    }
+  },
+
   async delete (request, response) {
     const { id } = request.params;
 

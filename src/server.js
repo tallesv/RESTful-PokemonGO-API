@@ -20,16 +20,17 @@ const databaseConnection = mongoose.connection;
 databaseConnection.on('error', console.error.bind(console, 'database connection error:'));
 
 databaseConnection.once('open', () => {
-  console.log('database connected.');
+  console.log('Database connected.');
 });
 
 databaseConnection.on('connected', async () => {
-  databaseConnection.db.collection('pokemons').countDocuments((err, count) => {
+  databaseConnection.db.collection('pokemons').countDocuments(async (err, count) => {
     if(count == 0) {
       console.log('Database empty, populating with pokemons.');
-      //populate();
+      populate().then(console.log('Populate completed'));
+
     } else {
-      console.log(`Database with ${count} pokemons`);
+      console.log(`Database loaded ${count} pokemons`);
     }
   });
 });

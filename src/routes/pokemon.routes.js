@@ -7,6 +7,8 @@ const pokemonsRouter = express.Router();
 
 pokemonsRouter.get('/', PokemonController.get);
 
+pokemonsRouter.get('/byStatus', PokemonController.getByStats);
+
 pokemonsRouter.get('/:id', PokemonController.getById);
 
 pokemonsRouter.post('/post', PokemonController.create);
@@ -16,3 +18,4 @@ pokemonsRouter.put('/put/:id', PokemonController.update);
 pokemonsRouter.delete('/delete/:id', PokemonController.delete);
 
 module.exports = pokemonsRouter;
+
