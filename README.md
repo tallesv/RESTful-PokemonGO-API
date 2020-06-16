@@ -36,7 +36,9 @@ Obs: O id dos pokemons foi gerado a partir da coluna "Pokedex Number" no arquivo
 - Find pokemon(get)
   rota: localhost:3333/pokemons/:id
 
--Find pokemon by status(get)
- 
-  
+-Find pokemon by status(get) 
   rota: localhost:3333/pokemons/ByStatus
+  
+  Para essa busca foi utilizado todos os atributos da entidade Pokemon, assim é possível fazer uma busca utilizando somente um atributo desejado, ou uma combinação deles.
+  Obs: nos atributos "stat", "atk", "def", "sta", "cp39" e "cp40" a busca foi implementada de um modo a trazer valores maiores ou iguais do que o usuário passa.
+  
