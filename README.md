@@ -21,22 +21,22 @@ Atributos utilizados: "name", "id", "generation", "evolution_state", "evolved", 
 
 Obs: O id dos pokemons foi gerado a partir da coluna "Pokedex Number" no arquivo "Pokemon Go.xlsx" encontrado no diretório src/database.
 
-# Create pokemon(post)
+### Create pokemon(post)
   rota: localhost:3333/pokemons/post
 
-# Update pokemon(put)
+### Update pokemon(put)
   rota: localhost:3333/pokemons/put/:id
 
-# Delete pokemon(delete)
+### Delete pokemon(delete)
   rota: localhost:3333/pokemons/delete/:id
 
-# List all pokemons(get)
+### List all pokemons(get)
   rota: localhost:3333/pokemons
 
-# Find pokemon(get)
+### Find pokemon(get)
   rota: localhost:3333/pokemons/:id
 
-# Find pokemon by status(get)
+### Find pokemon by status(get)
   rota: localhost:3333/pokemons/ByStatus
 
   Para essa busca foi utilizado todos os atributos da entidade Pokemon, assim é possível fazer uma busca utilizando somente um atributo desejado, ou uma combinação deles.
