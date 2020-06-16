@@ -17,7 +17,7 @@ async function populateDatabase() {
 
     const pokemons = pokemonsFromFile['Sheet1'];
 
-    pokemons.map(pokemon => pokemonRepository.save(pokemon));
+    pokemons.map(pokemon => pokemonRepository.parsePokemonToModelAndSave(pokemon));
   } catch (err) {
     console.log(err);
   }

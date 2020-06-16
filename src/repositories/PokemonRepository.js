@@ -64,17 +64,16 @@ module.exports = {
   },
 
   async save(pokemon) {
-    const pokemonData = this.parsePokemonToModel(pokemon);
 
-    const pokemonToCreate = new Pokemon(pokemonData);
+    const pokemonToCreate = new Pokemon(pokemon);
 
     const pokemonCreated = await pokemonToCreate.save();
 
     return pokemonCreated;
   },
 
-  parsePokemonToModel(pokemon) {
-    return pokemonModel = {
+  parsePokemonToModelAndSave(pokemon) {
+    const pokemonModel = {
       name: pokemon['Name'],
       id: pokemon['Pokedex Number'],
       generation: pokemon['Generation'],
@@ -104,6 +103,6 @@ module.exports = {
       cp40: pokemon['100% CP @ 40'],
       cp39: pokemon['100% CP @ 39']
     }
+    this.save(pokemonModel);
   }
-
 }
